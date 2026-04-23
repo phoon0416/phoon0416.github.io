@@ -1,7 +1,7 @@
 +++
 date = '2026-04-23T08:56:18+08:00'
 draft = false 
-title = 'Hugo+Github Pages搭建个人博客'
+title = 'Hugo+Github Pages搭建技术博客'
 +++
 
 
