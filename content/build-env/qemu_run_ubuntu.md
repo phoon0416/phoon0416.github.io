@@ -39,7 +39,7 @@ make -j
 export PATH=/path/to/qemu/build:$PATH
 ```
 
-## qemu安装并启动ubuntu
+## 安装并启动ubuntu虚拟机
 
 - 选择ubuntu镜像
 
@@ -56,7 +56,7 @@ wget https://releases.ubuntu.com/22.04/ubuntu-22.04.5-live-server-amd64.iso
 qemu-img create -f qcow2 ubuntu-22.04.5-server.qcow2 50G
 ```
 
-- qemu安装ubuntu
+- 安装ubuntu虚拟机
     - 运行安装命令
     ```bash
     qemu-system-x86_64 -machine q35,accel=kvm -cpu host -m 16G -smp 4 -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd -drive if=pflash,format=raw,file=./OVMF_VARS_4M.fd -cdrom ubuntu-22.04.5-live-server-amd64.iso -boot order=d -hda ubuntu-22.04.5-server.qcow2 -netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0 -serial mon:stdio -display none
@@ -69,14 +69,14 @@ qemu-img create -f qcow2 ubuntu-22.04.5-server.qcow2 50G
     - 安装成功后重启，如下图所示
     ![qemu_install_ubuntu_3](/images/qemu_run_ubuntu/qemu_install_ubuntu_3.png)
 
-- qemu启动ubuntu
+- 启动ubuntu虚拟机
 ```bash
 # 安装完成后，我们可以去掉-cdrom -boot参数启动ubuntu
 qemu-system-x86_64 -machine q35,accel=kvm -cpu host -m 16G -smp 4 -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd -drive if=pflash,format=raw,file=./OVMF_VARS_4M.fd -hda ubuntu-22.04.5-server.qcow2 -netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0 -serial mon:stdio -display none
 ```
 
 
-## 用自己编译的内核启动ubuntu
+## 自编译内核启动ubuntu虚拟机
 
 - 编译linux内核
 
@@ -88,7 +88,7 @@ make O=build ARCH=x86_64 menuconfig
     ---> Virtualization
 ```
 
-在Virtualization配置中添加内核的kvm支持，注意需要直接编译到内核，而不是编译成内核模块，如下图所示
+在Virtualization配置中添加内核的kvm支持，***注意需要直接编译到内核***，而不是编译成内核模块，如下图所示
 ![build_kernel_1](/images/qemu_run_ubuntu/build_kernel_1.png)
 
 ```bash
