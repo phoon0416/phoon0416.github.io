@@ -2,3 +2,8 @@ baseURL = 'https://phoon0416.github.io/'
 locale = 'zh-cn'
 title = 'Love Sunshine'
 theme = 'PaperMod'
+
+[params]
+  [params.homeInfoParams]
+    Title = '欢迎来到我小小的世界'
+    Content = '谢谢你长得这么好看还来看我，愿一切美好与你我同行^_^'
