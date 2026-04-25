@@ -1,0 +1,5 @@
+/* 让代码块支持自动换行 */
+.post-content pre code {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+}
