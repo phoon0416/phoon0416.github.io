@@ -10,11 +10,11 @@ title = 'Neovim构建IDE'
 ***我们一般下载最新stable版本的neovim***
 
 - 首先我们通过https://github.com/neovim/neovim地址进入到Neovim的github页面，找到右侧的Releases，如下图所示
-![download_neovim_1](/home/phoon/Downloads/download_neovim_1.png)
+![download_neovim_1](/images/construct_ide_with_neovim/download_neovim_1.png)
 - 点击releases，进入到Releases页面，按Ctrl+f，搜索"stable"关键字，找到最近的stable版本，如下图所示
-![download_neovim_2](/home/phoon/Downloads/download_neovim_2.png)
+![download_neovim_2](/images/construct_ide_with_neovim/download_neovim_2.png)
 - 下拉到该版本对应的Assets，单击Assets展开，找到nvim-linux-x86_64.appimage，点击下载，如下图所示
-![download_neovim_3](/home/phoon/Downloads/download_neovim_3.png)
+![download_neovim_3](/images/construct_ide_with_neovim/download_neovim_3.png)
 
 ## 下载javascript运行时环境包
 
