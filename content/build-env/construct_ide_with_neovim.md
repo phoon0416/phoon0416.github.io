@@ -440,3 +440,8 @@ cp /path/to/lsp.lua ~/.config/nvim/lua/configs/lsp.lua
 source ~/.bashrc
 nvim ---> 等待自动安装完插件就可以用了
 ```
+
+## 常见的问题
+
+1. 如果你使用的是ccls，而不是clangd作为c/c++ language server，那么需要按下图修改lsp_signature.nvim插件，以避免频繁出现非必要的警告信息
+![frequently_asked_questions_1](/images/construct_ide_with_neovim/frequently_asked_questions_1.png)
