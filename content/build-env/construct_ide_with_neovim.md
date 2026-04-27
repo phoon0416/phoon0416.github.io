@@ -445,6 +445,18 @@ nvim ---> 等待自动安装完插件就可以用了
 
 1. 如果你使用的是ccls，而不是clangd作为c/c++ language server，那么需要按下图修改lsp_signature.nvim插件，以避免频繁出现非必要的警告信息
 ![frequently_asked_questions_1](/images/construct_ide_with_neovim/frequently_asked_questions_1.png)
-2. 如果你需要ccls/clangd（比如查找函数定义、查找函数引用、写代码时补全）语言服务功能支持，那么需要首先生成该工程的编译数据库compile_commands.json文件，***并且将该文件放到该工程的根目录下***；生成compile_commands.json文件的方式有两种：
+2. 如果你需要使用cscope插件，首先在主机上通过sudo apt install cscope命令安装cscope，然后按照以下步骤生成工程的cscope.out文件
+    1. find . -name "*.c" -o -name "*.h" -o -name "*.S" -o -name "*.s" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cc" > cscope.files
+    2. cscope -bkq -i cscope.files
+3. 如果你需要ccls/clangd（比如查找函数定义、查找函数引用、写代码时补全）语言服务功能支持，那么需要首先生成该工程的编译数据库compile_commands.json文件，***并且将该文件放到该工程的根目录下***；生成compile_commands.json文件的方式有两种：
     1. 如果该工程使用的是cmake构建系统，则在cmake构建命令中添加-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     2. 如果该工程使用的是Makefile构建系统，则make编译时使用bear -- make -j编译命令（***需要首先使用sudo apt install bear命令安装bear工具***）
+
+## 常用的快捷命令
+- gd: 跳转到symbol定义处（通过ccls/clangd跳转）
+- gr: 跳转到symbol引用处（通过ccls/clangd跳转）
+- <Ctrl+Shift+_>g: 跳转到symbol定义处（通过cscope插件跳转）
+- <Ctrl+Shift+_>s: 跳转到symbol引用处（通过cscope插件跳转）
+- <Ctrl+Shift+_>c: 跳转到调用该函数处（通过cscope插件跳转）
+- ff: 查找工程中的某个文件（查找范围：所有文件）
+- fg: 查找工程中所有该关键字（查找范围：所有文件）
