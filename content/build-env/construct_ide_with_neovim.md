@@ -18,7 +18,7 @@ title = 'Neovim构建IDE'
 
 ## 下载javascript运行时环境包
 
-javascript运行时环境包的下载地址https://nodejs.org/en/，下载后得到node-v24.15.0-linux-x64.tar.xz（***这个是我下载的版本***）
+进入到javascript运行时环境包的下载地址[点击下载Nodejs](https://nodejs.org/en/)，下载后得到node-v24.15.0-linux-x64.tar.xz（***这个是我下载的版本***）
 
 ## 预安装包
 
