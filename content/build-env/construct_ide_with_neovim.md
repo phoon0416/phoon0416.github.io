@@ -467,6 +467,9 @@ cscope -bkq -i cscope.files
 - <Ctrl+Shift+_>c: 跳转到调用该函数处（通过cscope插件跳转）
 - ff: 查找工程中的某个文件（查找范围：所有文件）
 - fg: 查找工程中所有该关键字（查找范围：所有文件）
+- Ctrl+j: 接受copilot自动生成代码的全部
+- Ctrl+k: 接受copilot自动生成代码中的一行
+- Ctrl+l: 接受copilot自动生成代码中的一个单词
 
 ## 目前存在的问题
 1. 函数补全时函数能够显示函数签名但是不能显示函数解释
