@@ -161,20 +161,6 @@ git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.n
           event = "InsertEnter", -- 仅在插入模式时加载，提高启动速度
           ft = { "c", "cpp", "cc", "h", "hpp", "rust" },
         },
-        {
-          "CopilotC-Nvim/CopilotChat.nvim",
-          dependencies = {
-            { "nvim-lua/plenary.nvim", branch = "master" },
-          },
-          build = "make tiktoken",
-          opts = {
-            -- See Configuration section for options
-            window = {
-              layout = 'horizontal',       -- 'vertical', 'horizontal', 'float'
-              width = 0.5,              -- 50% of screen width
-            },
-          },
-        },
     })
     
     vim.cmd("syntax on")      -- 启用语法高亮
@@ -473,4 +459,3 @@ cscope -bkq -i cscope.files
 ## 目前存在的问题
 1. 函数补全时函数能够显示函数签名但是不能显示函数解释
 2. 如果使用clangd作为c/c++语言服务，在C工程中（例如qemu）有些symbol找不到定义（例如cpu_physical_memory_all_dirty）
-3. CopilotChat.nvim插件使用时会出错，暂时不能使用，需要进一步调试
