@@ -457,7 +457,6 @@ cscope -bkq -i cscope.files
     1. 如果该工程使用的是cmake构建系统，则在cmake构建命令中添加-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     2. 如果该工程使用的是Makefile构建系统，则make编译时使用bear -- make -j编译命令（***需要首先使用sudo apt install bear命令安装bear工具***）
 4. copilot.vim插件使用: 首次使用copilot.vim插件时需要先通过命令nvim test.c打开一个C文件（因为只有打开C或者C++文件才会加载copilot插件，文件可以为空），然后在neovim命令模式下输入Copilot setup命令根据提示配置完成，这样以后使用就无需在配置了；如需添加Copilot对其他编程语言的支持，需要在require("lazy").setup中copilot.vim插件的ft配置中添加相应的文件类型
-5. CopilotChat.nvim插件使用：第一种用法，首先按Shift+V键选定代码，然后在neovim命令行模式下执行CopilotChatExplain命令；第二种用法，首先在neovim命令行模式下执行CopilotChat命令打开聊天窗口，然后在聊天窗口中输入你的问题，完成后按Alt+Enter键确定
 
 ## 常用的快捷命令
 - gd: 跳转到symbol定义处（通过ccls/clangd跳转）
