@@ -25,6 +25,9 @@ title = 'Neovim构建IDE'
 ```bash
 # ccls是一种c/c++语言服务，如果你主要开发c语言工程建议用ccls作为语言服务，如果主要开发c++工程则建议安装clangd作为语言服务（因为ccls对最新的c++语言标准支持不大好，而clangd属于llvm项目的一部分，能够更好的支持最新的c++标准）
 sudo apt install make git ripgrep xclip ccls
+# 如果想安装最新版本的ccls，则需要按以下方式分开安装
+# sudo apt install make git ripgrep xclip
+# sudo snap install ccls --classic
 ```
 
 ## 配置环境变量
