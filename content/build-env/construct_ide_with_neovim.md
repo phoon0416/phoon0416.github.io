@@ -444,7 +444,7 @@ source ~/.bashrc
 nvim ---> 等待自动安装完插件就可以用了
 ```
 
-## 常见的问题
+## 使用前须知
 
 1. 如果你使用的是ccls，而不是clangd作为c/c++ language server，那么需要按下图修改lsp_signature.nvim插件，以避免频繁出现非必要的警告信息
 ![frequently_asked_questions_1](/images/construct_ide_with_neovim/frequently_asked_questions_1.png)
@@ -456,6 +456,8 @@ cscope -bkq -i cscope.files
 3. 如果你需要ccls/clangd（比如查找函数定义、查找函数引用、写代码时补全）语言服务功能支持，那么需要首先生成该工程的编译数据库compile_commands.json文件，***并且将该文件放到该工程的根目录下***；生成compile_commands.json文件的方式有两种：
     1. 如果该工程使用的是cmake构建系统，则在cmake构建命令中添加-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     2. 如果该工程使用的是Makefile构建系统，则make编译时使用bear -- make -j编译命令（***需要首先使用sudo apt install bear命令安装bear工具***）
+4. copilot.vim插件使用: 首次使用copilot.vim插件时需要先通过命令nvim test.c打开一个C文件（因为只有打开C或者C++文件才会加载copilot插件，文件可以为空），然后在neovim命令模式下输入Copilot setup命令根据提示配置完成，这样以后使用就无需在配置了；如需添加Copilot对其他编程语言的支持，需要在require("lazy").setup中copilot.vim插件的ft配置中添加相应的文件类型
+5. CopilotChat.nvim插件使用：第一种用法，首先按Shift+V键选定代码，然后在neovim命令行模式下执行CopilotChatExplain命令；第二种用法，首先在neovim命令行模式下执行CopilotChat命令打开聊天窗口，然后在聊天窗口中输入你的问题，完成后按Alt+Enter键确定
 
 ## 常用的快捷命令
 - gd: 跳转到symbol定义处（通过ccls/clangd跳转）
@@ -465,3 +467,7 @@ cscope -bkq -i cscope.files
 - <Ctrl+Shift+_>c: 跳转到调用该函数处（通过cscope插件跳转）
 - ff: 查找工程中的某个文件（查找范围：所有文件）
 - fg: 查找工程中所有该关键字（查找范围：所有文件）
+
+## 目前存在的问题
+1. 函数补全时函数能够显示函数签名但是不能显示函数解释
+2. 如果使用clangd作为c/c++语言服务，在C工程中（例如qemu）有些symbol找不到定义（例如cpu_physical_memory_all_dirty）
