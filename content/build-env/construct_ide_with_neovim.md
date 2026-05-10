@@ -473,3 +473,4 @@ cscope -bkq -i cscope.files
 ## 目前存在的问题
 1. 函数补全时函数能够显示函数签名但是不能显示函数解释
 2. 如果使用clangd作为c/c++语言服务，在C工程中（例如qemu）有些symbol找不到定义（例如cpu_physical_memory_all_dirty）
+3. CopilotChat.nvim插件使用时会出错，暂时不能使用，需要进一步调试
